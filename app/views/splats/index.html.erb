@@ -5,10 +5,18 @@
       <span class="for-screen-reader">Settings</span>
     </button>
 
-    <%= link_to new_splat_path, class: "btn flex-item-justify-end", style: "view-transition-name: new-splat" do %>
-      <%= image_tag "add.svg", aria: { hidden: true }, size: 24 %>
-      <span class="for-screen-reader">Create a new splat</span>
-    <% end %>
+    <div class="flex-item-justify-end" data-controller="dialog">
+      <%= tag.button class: "btn flex-item-justify-end", popovertarget: "new-splat-panel" do %>
+        <%= image_tag "add.svg", aria: { hidden: true }, size: 24 %>
+        <span class="for-screen-reader">Create a new splat</span>
+      <% end %>
+
+      <dialog class="panel" id="new-splat-panel" data-dialog-target="dialog" popover>
+        <div class="flex pad">
+          <%= turbo_frame_tag :new_splat, src: new_splat_path, target: "_top" %>
+        </div>
+      </dialog>
+    </div>
   </nav>
 <% end %>
 
@@ -56,7 +64,7 @@
   </li>
 </menu>
 
-<section class="splats-list panel center borderless">
+<section class="splats-list unpad-inline center">
   <ul class="unpad margin-none flex flex-column txt-align-start center">
     <% @splats.each do | splat | %>
       <li class="flex align-center gap margin-none">

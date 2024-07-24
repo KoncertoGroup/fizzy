@@ -5,10 +5,18 @@
       <span class="for-screen-reader">All Splats</span>
     <% end %>
 
-    <%= link_to edit_splat_path, class: "btn flex-item-justify-end" do %>
-      <%= image_tag "pencil.svg", aria: { hidden: true }, size: 24 %>
-      <span class="for-screen-reader">Edit <%= @splat.title %></span>
-    <% end %>
+    <div class="flex-item-justify-end" data-controller="dialog">
+      <%= tag.button class: "btn flex-item-justify-end", popovertarget: "splat-edit-panel" do %>
+        <%= image_tag "pencil.svg", aria: { hidden: true }, size: 24 %>
+        <span class="for-screen-reader">Edit <%= @splat.title %></span>
+      <% end %>
+
+      <dialog class="panel" id="splat-edit-panel" data-dialog-target="dialog" popover>
+        <div class="flex pad">
+          <%= turbo_frame_tag @splat, :edit, src: edit_splat_path(@splat), target: "_top" %>
+        </div>
+      </dialog>
+    </div>
   </nav>
 <% end %>
 

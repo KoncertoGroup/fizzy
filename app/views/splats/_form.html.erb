@@ -20,12 +20,17 @@
   <fieldset class="flex flex-column unpad margin-block-end borderless justify-space-between">
     <legend class="for-screen-reader">Tag</legend>
 
-    <div class="flex align-center gap">
+    <div class="flex align-center gap flex-wrap">
       <% Splat.tags.keys.each do | tag | %>
         <label class="btn txt-medium" style="--btn-background: <%= tag -%>" >
           <span><%= tag %></span>
         </label>
       <% end %>
+
+      <label class="btn txt-medium" >
+          <%= image_tag "add.svg", aria: { hidden: "true" }, size: 24 %>
+          <span class="for-screen-reader">Add a category</span>
+      </label>
     </div>
   </fieldset>
 
