@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resources :categories, only: %i[new create]
   end
 
-  get "up" => "rails/health#show", as: :rails_health_check
+  get "up", to: "rails/health#show", as: :rails_health_check
 end
