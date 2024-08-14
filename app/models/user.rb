@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :organization
   has_many :sessions, dependent: :destroy
+  has_many :splats, dependent: :destroy
 
   has_secure_password validations: false
 

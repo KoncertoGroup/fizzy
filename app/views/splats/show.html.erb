@@ -41,7 +41,7 @@
 
   <div class="comment flex align-start gap">
     <header class="full-width margin-block">
-      Added by <strong>Jason Zimdars</strong> on <%= @splat.created_at.strftime("%B %d") %> (<%= time_ago_in_words @splat.created_at %> ago).
+      Added by <strong><%= @splat.creator.name %></strong> on <%= @splat.created_at.strftime("%B %d") %> (<%= time_ago_in_words @splat.created_at %> ago).
     </header>
   </div>
 
