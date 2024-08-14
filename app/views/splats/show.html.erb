@@ -24,7 +24,7 @@
   <%= render @splat %>
 </div>
 
-<div class="splat__notes txt-align-start panel center pad-block-half pad-inline-end fill-shade border-radius border margin-block-start-double flex align-start" style="--border-color: <%= @splat.color %>; background-color: <%= @splat.color -%>20">
+<div class="splat__notes fill-transparent txt-align-start panel center pad-block-half pad-inline-end borderless margin-block-start-double flex align-start" style="--splat-color: <%= @splat.color %>;">
   <div class="full-width">
     <%= simple_format @splat.body %>
   </div>
@@ -35,12 +35,17 @@
   <% end %>
 </div>
 
-<section class="comments panel center borderless margin-block flex flex-column gap">
+<section class="comments panel center borderless margin-block flex flex-column gap" style="--splat-color: <%= @splat.color %>;">
+
+  <hr />
+
   <div class="comment flex align-start gap">
     <header class="full-width margin-block">
-      Added by <strong>Jason Zimdars</strong> <%= time_ago_in_words @splat.created_at %> ago.
+      Added by <strong>Jason Zimdars</strong> on <%= @splat.created_at.strftime("%B %d") %> (<%= time_ago_in_words @splat.created_at %> ago).
     </header>
   </div>
+
+  <hr />
 
   <div class="comment flex align-start gap">
     <div class="flex align-center gap">
@@ -54,6 +59,8 @@
     </div>
   </div>
 
+  <hr />
+
   <div class="comment flex align-start gap">
     <div class="flex align-center gap">
       <span class="avatar fill-selected flex-item-no-shrink"><strong>JF</strong></span>
@@ -65,6 +72,8 @@
       <p class="margin-none-block-start">Never mind, I nipped home and tried it on Browser Stack. It's working correctly on Windows with Edge, Chrome & Firefox. </p>
     </div>
   </div>
+
+  <hr />
 
   <div class="comment flex align-start gap">
     <div class="flex align-center gap">
@@ -78,6 +87,9 @@
       <p>But if you hear about something similar happening to anyone else, please flag it here and I'll look more urgently.</p>
     </div>
   </div>
+
+  <hr />
+
   <button class="btn btn--positive center">
     <%= image_tag "add.svg", aria: { hidden: true }, size: 24 %>
     <span class="for-screen-reader">Add a comment</span>

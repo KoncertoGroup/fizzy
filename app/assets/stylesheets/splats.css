@@ -20,7 +20,6 @@
   --splat-color: var(--color-ink);
   --splat-rotate: 20deg;
 
-  animation: float-up-left 400ms normal forwards ease-out;
   aspect-ratio: 1;
   block-size: var(--splat-size);
   color: var(--splat-color, currentColor);
@@ -31,13 +30,17 @@
   position: relative;
   transition: all 0.2s ease;
 
-  &:nth-of-type(2n+1) {
-    animation-delay: 50ms;
-    animation: float-down-right 400ms normal forwards ease-out;
-  }
+  .windshield & {
+    animation: float-up-left 400ms normal forwards ease-out;
 
-  &:nth-of-type(3n+1) {
-    animation-delay: 150ms;
+    &:nth-of-type(2n+1) {
+      animation-delay: 50ms;
+      animation: float-down-right 400ms normal forwards ease-out;
+    }
+
+    &:nth-of-type(3n+1) {
+      animation-delay: 150ms;
+    }
   }
 
   .windshield &:nth-of-type(n+5) {
@@ -63,24 +66,6 @@
   .splat__perma & {
     --splat-size: 50vh !important;
   }
-}
-
-.splat__link {
-  content: "";
-  inset: 0;
-  position: absolute;
-  z-index: -1;
-}
-
-.splat__svg {
-  fill: var(--color-bg);
-  position: absolute;
-  scale: 1.1;
-  stroke: var(--splat-color);
-  stroke-width: 1.1rem;
-  transform: rotate(var(--splat-rotate));
-  transition: all 200ms ease-out;
-  z-index: -1;
 }
 
 .splat__bubble {
@@ -157,6 +142,28 @@
       transform: translate(-1rem, -1rem);
     }
   }
+}
+
+.splat__link {
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.splat__notes {
+  position: relative;
+}
+
+.splat__svg {
+  fill: var(--color-bg);
+  position: absolute;
+  scale: 1.1;
+  stroke: var(--splat-color);
+  stroke-width: 1.1rem;
+  transform: rotate(var(--splat-rotate));
+  transition: all 200ms ease-out;
+  z-index: -1;
 }
 
 .splat__title {

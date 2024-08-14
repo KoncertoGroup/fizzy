@@ -1,19 +1,42 @@
+.comments {
+  hr {
+    block-size: 6cqi;
+    border-inline-start: 1px solid var(--splat-color);
+    display: block;
+    inline-size: 2px;
+    margin: auto;
+    overflow: initial;
+    position: relative;
+
+    &::after {
+      background: var(--color-bg);
+      border: 2px solid var(--splat-color);
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: 1cqi;
+      inline-size: 1cqi;
+      inset: auto auto -0.5cqi auto;
+      margin-inline-start: -0.5cqi;
+      position: absolute;
+    }
+
+    &::before {
+      background: var(--color-bg);
+      border: 2px solid var(--splat-color);
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: 1cqi;
+      inline-size: 1cqi;
+      inset: -0.5cqi auto auto auto;
+      margin-inline-start: -0.5cqi;
+      position: absolute;
+    }
+  }
+}
+
 .comment {
   inline-size: 100%;
   flex-wrap: wrap;
-  border: 1px solid currentColor;
-  border-radius: 1em;
-  padding: var(--block-space);
-  position: relative;
-
-  &:after {
-    content: "";
-    background: currentColor;
-    block-size: var(--block-space);
-    inline-size: 4px;;
-    margin: auto;
-    position: absolute;
-    inset: auto 50% 0 auto;
-    margin-block-end: calc(var(--block-space) * -1);
-  }
 }

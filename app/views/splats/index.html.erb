@@ -18,8 +18,8 @@
       <% end %>
     </h1>
 
-    <%= link_to new_splat_path, class: "btn flex-item-justify-end" do %>
-      <%= image_tag "add.svg", aria: { hidden: true }, size: 24 %>
+    <%= link_to new_splat_path, class: "btn btn--plain flex-item-justify-end" do %>
+      <%= image_tag "bubble-add.svg", aria: { hidden: true }, size: 24 %>
       <span class="for-screen-reader">Create a new splat</span>
     <% end %>
   </nav>
@@ -41,10 +41,9 @@
         <% end %>
         <small class="flex align-center gap flex-item-no-shrink">
           <% splat.categories.each do |category| %>
-            <%= link_to "# #{ category.title }", splats_path(category_id: category.id) %>
+            <%= link_to "# #{ category.title }", splats_path(category_id: category.id), style: "color: #{ splat.color }" %>
           <% end %>
-          <span class="avatar txt-small txt-nowrap fill-shade"><strong>JZ</strong></span>
-          <time class="txt-nowrap flex-item-justify-end"><%= splat.updated_at.strftime("%B %d").html_safe %></time>
+          <time class="txt-nowrap flex-item-justify-end"><%= splat.created_at.strftime("%b %d").html_safe %></time>
         </small>
       </li>
     <% end %>

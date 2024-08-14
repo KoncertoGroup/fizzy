@@ -10,7 +10,7 @@
   <time class="splat__bubble splat__meta splat__date"><%= splat.created_at.strftime("%b <br> %d").html_safe %></time>
 
   <% splat.categories.each do | category | %>
-    <%= link_to category.title, splats_path(category_id: category.id), class: "splat__bubble splat__meta splat__category" %>
+    <%= link_to "##{category.title}", splats_path(category_id: category.id), class: "splat__bubble splat__meta splat__category" %>
   <% end %>
 
   <% if splat.categories.count < 3 %>
