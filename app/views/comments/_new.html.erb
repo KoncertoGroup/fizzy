@@ -1,0 +1,18 @@
+<div class="comment flex align-start gap">
+  <div class="flex align-center gap full-width">
+    <span class="avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= Current.user.initials %></strong></span>
+    <header class="full-width flex align-center gap">
+      <strong><%= Current.user.name %></strong>
+    </header>
+  </div>
+  <div class="comment__body txt-align-start full-width">
+    <%= form_with model: [@splat, @splat.comments.build], class: "flex flex-column gap full-width" do | form | %>
+      <%= form.text_area :body, class: "input full-width", required: true, placeholder: "Type your comment…", rows: 4, autofocus: true %>
+
+      <%= form.button class: "btn btn--reversed center" do %>
+        <%= image_tag "check.svg", aria: { hidden: "true" }, size: 24%>
+        <span class="for-screen-reader">Save</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

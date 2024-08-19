@@ -40,8 +40,5 @@
   <hr />
   <%= render @splat.comments %>
 
-  <button class="btn btn--positive center">
-    <%= image_tag "add.svg", aria: { hidden: true }, size: 24 %>
-    <span class="for-screen-reader">Add a comment</span>
-  </button>
+  <%= render "comments/new" %>
 </section>

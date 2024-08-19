@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :splats do
     resources :categories, shallow: true
+    resources :comments
   end
 
   resources :categories, only: :index
