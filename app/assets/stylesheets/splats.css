@@ -79,6 +79,15 @@
     color: var(--splat-color);
   }
 
+  &.splat__boosts {
+    aspect-ratio: 1;
+    inset: 50cqi -1cqi auto auto;
+
+    .windshield .splat:hover & {
+      transform: translate(0, 1rem) !important;
+    }
+  }
+
   &.splat__category {
     inset: auto auto 10cqi -3cqi;
 
