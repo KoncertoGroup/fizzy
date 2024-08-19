@@ -39,6 +39,10 @@
 .comment {
   inline-size: 100%;
   flex-wrap: wrap;
+
+  &:target {
+    background-color: var(--color-selected);
+  }
 }
 
 .comment__body {

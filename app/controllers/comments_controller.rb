@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = @splat.comments.create(comment_params)
     @comment.save
 
-    redirect_to splat_path(@splat)
+    redirect_to splat_path(@splat, anchor: "comment_#{@comment.id}")
   end
 
   private
