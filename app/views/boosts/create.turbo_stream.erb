@@ -1,0 +1,3 @@
+<%= turbo_stream.update dom_id(@splat, "boosts") do %>
+  <%= render "/boosts/boost", splat: @splat %>
+<% end %>

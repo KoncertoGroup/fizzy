@@ -52,6 +52,7 @@
   @media (hover: hover) {
     .windshield &:hover {
       scale: 1.1;
+      z-index: 999;
 
       .splat__svg {
         transform: rotate(calc(var(--splat-rotate) + 10deg));
@@ -82,6 +83,10 @@
   &.splat__boosts {
     aspect-ratio: 1;
     inset: 50cqi -1cqi auto auto;
+
+    a {
+      text-decoration: none;
+    }
 
     .windshield .splat:hover & {
       transform: translate(0, 1rem) !important;

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :session
 
   resources :splats do
+    resources :boosts
     resources :categories, shallow: true
     resources :comments
   end

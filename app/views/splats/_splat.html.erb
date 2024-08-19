@@ -21,7 +21,8 @@
     </span>
   <% end %>
 
-  <% if splat.boosts.any? %>
-    <div class="splat__bubble splat__meta splat__boosts"><%= splat.boosts.size %></div>
-  <% end %>
+
+  <div class="splat__bubble splat__meta splat__boosts">
+    <turbo-frame id="<%= dom_id(splat, "boosts") %>" src="<%= splat_boosts_path(splat) %>" />
+  </div>
 </div>

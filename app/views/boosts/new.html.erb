@@ -1,0 +1,5 @@
+<turbo-frame id="<%= dom_id(@splat, "boosts") %>">
+  <%= form_with model: [@splat, @boost], data: { controller: "auto-submit" } do |form| %>
+    <%= form.submit "Boost this", hidden: true %>
+  <% end %>
+</turbo-frame>
