@@ -1,4 +1,4 @@
-<% content_for(:title) { "Sign in" } %>
+<% @page_title = "Sign in" %>
 
 <div class="panel shadow center margin-block-double <%= "shake" if flash[:alert] %>" style="--panel-size: 40ch;">
   <%#= image_tag "blob.svg", class: "product__logo center colorize--black", size: 130 %>
@@ -35,6 +35,6 @@
   <% end %>
 </div>
 
-<% content_for(:footer) do %>
+<% content_for :footer do %>
   <div class="txt-align-center center margin-block-double txt-subtle">Fizzy&trade; version 0</div>
 <% end %>
