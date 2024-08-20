@@ -35,6 +35,6 @@ if [ -d "$HOME/.puma-dev" ]; then
   announce "Configuring puma-dev"
   ln -nfs "$app_root" "$HOME/.puma-dev/$app_name"
 
-  announce "Checking https://$app_name.test/up: "
+  announce "Checking https://$app_name.test/up"
   curl -Is "https://$app_name.test/up" | head -n 1
 fi
