@@ -1,6 +1,6 @@
 module SplatsHelper
-  SPLAT_ROTATION = %w[90 80 75 60 45 35 25 5 -45 -40 -75]
-  SPLAT_SIZE = [14, 16, 18, 20, 22]
+  SPLAT_ROTATION = %w[ 90 80 75 60 45 35 25 5 -45 -40 -75 ]
+  SPLAT_SIZE = [ 14, 16, 18, 20, 22 ]
   MIN_THRESHOLD = 7
 
   def splat_rotation(splat)
