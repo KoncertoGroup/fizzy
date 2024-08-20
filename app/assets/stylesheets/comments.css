@@ -1,52 +1,32 @@
 .comments {
-  hr {
-    block-size: 6cqi;
-    border-inline-start: 1px solid var(--splat-color);
-    display: block;
-    inline-size: 2px;
-    margin: auto;
-    overflow: initial;
-    position: relative;
 
-    &::after {
-      background: var(--color-bg);
-      border: 2px solid var(--splat-color);
-      border-radius: 50%;
-      content: "";
-      display: block;
-      height: 1cqi;
-      inline-size: 1cqi;
-      inset: auto auto -0.5cqi auto;
-      margin-inline-start: -0.5cqi;
-      position: absolute;
-    }
-
-    &::before {
-      background: var(--color-bg);
-      border: 2px solid var(--splat-color);
-      border-radius: 50%;
-      content: "";
-      display: block;
-      height: 1cqi;
-      inline-size: 1cqi;
-      inset: -0.5cqi auto auto auto;
-      margin-inline-start: -0.5cqi;
-      position: absolute;
-    }
-  }
 }
 
 .comment {
-  inline-size: 100%;
-  flex-wrap: wrap;
+  padding:
+      calc(var(--block-space) * 1.5)
+      calc(var(--inline-space) * 2)
+      calc(var(--block-space) * 2)
+      var(--inline-space);
 
   &:target {
     background-color: var(--color-selected);
   }
+
+  .avatar {
+    margin-block-start: -0.5em;
+    margin-inline-start: calc(-2.65em + var(--inline-space));
+  }
 }
 
 .comment__body {
-  p:first-child {
-    margin-block-start: 0;
+  p {
+    &:first-child {
+      margin-block-start: 0;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
   }
 }

@@ -1,13 +1,14 @@
-<div class="comment flex align-start gap" id="<%= dom_id(comment) %>">
-  <div class="flex align-center gap full-width">
-    <span class="avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= comment.creator.initials %></strong></span>
-    <header class="full-width flex align-center gap">
+<div class="comment flex align-start gap fill-shade border-radius full-width" id="<%= dom_id(comment) %>">
+  <span class="avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= comment.creator.initials %></strong></span>
+  <div class="flex flex-column full-width">
+    <div class="flex align-center gap-half">
       <strong><%= comment.creator.name %></strong>
-    </header>
-  </div>
-  <div class="comment__body txt-align-start">
-    <%= simple_format comment.body %>
+      <%= link_to splat_path(@splat, anchor: "comment_#{comment.id}"), class: "txt-undecorated" do %>
+        <time class="txt-subtle"><%= comment.created_at.strftime("%b %d").html_safe %></time>
+      <% end %>
+    </div>
+    <div class="comment__body txt-align-start">
+      <%= simple_format comment.body %>
+    </div>
   </div>
 </div>
-
-<hr />
