@@ -3,11 +3,6 @@
 }
 
 .windshield {
-  align-items: end;
-  background-color: var(--color-bg);
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
   margin-block: clamp(var(--block-space), 3%, calc(var(--block-space) * 2));
 
   > * {
@@ -51,6 +46,7 @@
 
   @media (hover: hover) {
     .windshield &:hover {
+      animation: shimmy 400ms normal forwards ease-out;
       scale: 1.1;
       z-index: 999;
 
