@@ -1,4 +1,5 @@
 .comment {
+  margin-inline-end: calc(var(--block-space) * 1.5);
   padding:
       calc(var(--block-space) * 1.5)
       calc(var(--inline-space) * 2)
@@ -12,6 +13,25 @@
   .avatar {
     margin-block-start: -0.5em;
     margin-inline-start: calc(-2.65em + var(--inline-space));
+  }
+
+  &:is(.comment--mine) {
+    background-color: var(--color-selected);
+    flex-direction: row-reverse;
+    margin-inline: calc(var(--block-space) * 1.5) auto;
+    padding:
+        calc(var(--block-space) * 1.5)
+        var(--inline-space)
+        calc(var(--block-space) * 2)
+        calc(var(--inline-space) * 2);
+
+    .avatar {
+      margin-inline: auto calc(-2.65em + var(--inline-space));
+    }
+
+    .comment__author {
+      flex-direction: row-reverse;
+    }
   }
 }
 
