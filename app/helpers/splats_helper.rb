@@ -4,7 +4,7 @@ module SplatsHelper
   MIN_THRESHOLD = 7
 
   def splat_rotation(splat)
-    "--splat-rotate: #{ SPLAT_ROTATION[Zlib.crc32(splat.to_param) % SPLAT_ROTATION.size] }deg;"
+    SPLAT_ROTATION[Zlib.crc32(splat.to_param) % SPLAT_ROTATION.size]
   end
 
   def splat_size(splat)
