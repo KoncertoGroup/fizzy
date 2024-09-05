@@ -35,11 +35,10 @@
   <fieldset class="flex flex-column unpad margin-block-end borderless justify-space-between">
     <legend class="for-screen-reader">Attachment</legend>
     <label class="input input--file input--picture unpad" data-controller="upload-preview">
-      <%= image_tag bubble.image.attached? ? bubble.image : "default-picture.webp", alt: "Picture",
+      <%= image_tag bubble.image.presence || "default-picture.webp", alt: "Picture",
             data: { upload_preview_target: "image" } %>
-
       <%= form.file_field :image, class: "input", accept: "image/png, image/jpeg, image/jpg, image/webp",
-          data: { upload_preview_target: "input", action: "upload-preview#previewImage" } %>
+            data: { upload_preview_target: "input", action: "upload-preview#previewImage" } %>
     </label>
   </fieldset>
 

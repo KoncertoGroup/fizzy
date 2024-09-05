@@ -13,7 +13,9 @@
     </div>
   <% end %>
 
-  <time class="bubble__bubble bubble__meta bubble__date"><%= bubble.created_at.strftime("%b <br> %d").html_safe %></time>
+  <time class="bubble__bubble bubble__meta bubble__date">
+    <%= bubble.created_at.strftime("%b <br> %d").html_safe %>
+  </time>
 
   <% bubble.tags.each do |tag| %>
     <%= link_to "##{tag.title}", bubbles_path(tag_id: tag), class: "bubble__bubble bubble__meta bubble__tag" %>
@@ -28,7 +30,11 @@
   <% end %>
 
   <%= tag.div class: "bubble__bubble bubble__meta bubble__boosts",
-      data: { controller: "animation toggle-class", animation_play_class: "boosting", toggle_class_toggle_class: "boosting", action: "animationend->toggle-class#toggle" } do %>
-    <turbo-frame id="<%= dom_id(bubble, "boosts") %>" src="<%= bubble_boosts_path(bubble) %>" />
+        data: {
+          controller: "animation toggle-class",
+          animation_play_class: "boosting",
+          toggle_class_toggle_class: "boosting",
+          action: "animationend->toggle-class#toggle" } do %>
+    <%= turbo_frame_tag dom_id(bubble, :boosts), src: bubble_boosts_path(bubble) %>
   <% end %>
 </div>
