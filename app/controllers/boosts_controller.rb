@@ -1,22 +1,14 @@
 class BoostsController < ApplicationController
   before_action :set_bubble
 
+  def index
+  end
+
   def new
-    @boost = @bubble.boosts.build
   end
 
   def create
-    @boost = @bubble.boosts.new
-    @boost.save
-
-    respond_to do |format|
-      format.turbo_stream { render }
-      format.html { head :no_content }
-    end
-  end
-
-  def index
-    @boosts = @bubble.boosts
+    @bubble.boosts.create!
   end
 
   private

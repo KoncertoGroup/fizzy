@@ -1,0 +1,3 @@
+<%= link_to new_bubble_boost_path(bubble), data: { action: "toggle-class#toggle" } do %>
+  + <%= bubble.boosts.size if bubble.boosts.any? %>
+<% end %>
