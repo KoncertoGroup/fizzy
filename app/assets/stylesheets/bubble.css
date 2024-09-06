@@ -67,7 +67,7 @@
 
 .bubble__bubble {
   background-color: var(--color-bg);
-  border: 0.3em solid var(--bubble-color);
+  border: max(3px, 0.3em) solid var(--bubble-color);
   border-radius: 50%;
   position: absolute;
   z-index: -1;
@@ -114,6 +114,19 @@
     }
   }
 
+  &.bubble__attachment {
+    aspect-ratio: 1;
+    inset: -4cqi 24cqi auto auto;
+
+    .btn {
+      font-size: 4cqi;
+    }
+
+    .windshield & {
+      display: none;
+    }
+  }
+
   &.bubble__date {
     aspect-ratio: 1;
     inset: 2cqi 2cqi auto auto;
@@ -138,7 +151,7 @@
     white-space: nowrap;
     z-index: 1;
 
-    &:has(.input) {
+    &:has(.input:not([type="file"])) {
       border-radius: 2em;
       padding: 0.2em 0.5em;
 
