@@ -4,7 +4,7 @@ module BubblesHelper
   MIN_THRESHOLD = 7
 
   def bubble_rotation(bubble)
-    BUBBLE_ROTATION[Zlib.crc32(bubble.to_param) % BUBBLE_ROTATION.size]
+    "--bubble-rotate: #{ BUBBLE_ROTATION[Zlib.crc32(bubble.to_param) % BUBBLE_ROTATION.size] }deg;"
   end
 
   def bubble_size(bubble)

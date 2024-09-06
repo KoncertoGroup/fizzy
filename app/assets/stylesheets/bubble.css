@@ -1,5 +1,6 @@
 :root {
   --bubble-size: 30vw;
+  --bubble-shift: 10deg;
 }
 
 .windshield {
@@ -13,7 +14,6 @@
 .bubble {
   --hover-size: 0;
   --bubble-color: var(--color-ink);
-  --bubble-rotate: 20deg;
 
   aspect-ratio: 1;
   block-size: var(--bubble-size);
@@ -51,7 +51,11 @@
       z-index: 999;
 
       .bubble__svg {
-        transform: rotate(calc(var(--bubble-rotate) + 10deg));
+        transform: rotate(calc(var(--bubble-rotate) + var(--bubble-shift)));
+      }
+
+      .bubble__image {
+        transform: rotate(calc(var(--bubble-rotate) + var(--bubble-shift)));
       }
     }
   }
@@ -177,28 +181,25 @@
 }
 
 .bubble__image {
-  -webkit-mask-image: url(blob.svg);
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  block-size: 100%;
-  display: grid;
   mask-image: url(blob.svg);
   mask-position: center;
   mask-repeat: no-repeat;
-  mask-size: contain;
-  place-items: center;
+
+  block-size: 100cqi;
+  inline-size: 100cqi;
   pointer-events: none;
   transform: rotate(var(--bubble-rotate));
+  transition: all 0.2s ease;
 
   @media (hover: hover) {
     .windshield .bubble:hover & {
-      transform: rotate(calc(var(--bubble-rotate) + 10deg));
+      transform: rotate(calc(var(--bubble-rotate) + var(--bubble-shift)));
     }
   }
 
   img {
-    block-size: 100%;
+    block-size: 100cqi;
+    inline-size: 100cqi;
     object-fit: cover;
     transform: rotate(calc(var(--bubble-rotate) * -1));
   }
@@ -222,6 +223,7 @@
   scale: 1.1;
   stroke: var(--bubble-color);
   stroke-width: 1.1rem;
+  transform: rotate(var(--bubble-rotate));
   transition: all 200ms ease-out;
   z-index: -1;
 }
