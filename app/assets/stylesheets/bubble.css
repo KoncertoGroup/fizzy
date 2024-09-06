@@ -82,14 +82,14 @@
 
   &:is(.bubble__boosts) {
     aspect-ratio: 1;
-    display: grid;
+    display: flex;
+    inset: 55cqi -2cqi auto auto;
     min-inline-size: 6ch;
     padding: 0;
     place-items: center;
-    inset: 55cqi -2cqi auto auto;
 
     a {
-      grid-area: 1/1;
+      margin: auto;
       text-decoration: none;
     }
 
