@@ -239,9 +239,16 @@
   max-block-size: 75cqi;
   max-inline-size: 75cqi;
   overflow: hidden;
-  pointer-events: none;
   text-overflow: clip;
   white-space: normal;
+
+  .windshield & {
+    pointer-events: none;
+  }
+
+  a {
+    color: var(--splat-color);
+  }
 
   @media (hover: hover) {
     .bubble:has(.bubble__image img:not([src=""])):hover & {

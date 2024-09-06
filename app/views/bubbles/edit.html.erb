@@ -1,3 +1,12 @@
 <%= turbo_frame_tag @bubble, :edit do %>
-  <%= render "bubbles/form", bubble: @bubble %>
+  <%= form_with model: @bubble, class: "flex flex-column gap full-width", data: { controller: "form" } do | form | %>
+    <%= form.label :title, class: "flex flex-column justify-center align-center" do %>
+      <%= form.text_area :title, class: "input input--textara unpad full-width borderless",
+          required: true, rows: 5, autofocus: true, placeholder: "Name it…",
+          data: { action: "keydown.ctrl+enter->form#submit:prevent keydown.meta+enter->form#submit:prevent keydown.esc->form#cancel" },
+          style: "color: var(--spat-color)" %>
+    <% end %>
+    <%= form.submit "Save", hidden: true %>
+    <%= link_to "Close editor and discard changes", bubble_path(@bubble), data: { form_target: "cancel" }, hidden: true %>
+  <% end %>
 <% end %>
