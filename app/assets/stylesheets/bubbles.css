@@ -263,6 +263,8 @@
 .bubbles-list {
   --hover-size: 0;
 
+  max-inline-size: 90ch;
+
   .bubble__title-link {
     color: var(--color-txt);
     text-decoration: none;

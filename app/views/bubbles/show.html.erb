@@ -24,7 +24,7 @@
   <%= render @bubble %>
 </div>
 
-<section class="comments align-center panel center borderless margin-block flex flex-wrap gap-half" style="--bubble-color: <%= @bubble.color %>;">
+<section class="comments align-center center borderless margin flex flex-column gap-half" style="--bubble-color: <%= @bubble.color %>;">
   <% comments = (@bubble.comments + @bubble.boosts).sort_by(&:updated_at) %>
   <% boosts = [] %>
 
@@ -33,7 +33,7 @@
       <% boosts << comment %>
       <% if comments[index + 1].nil? || !comments[index + 1].is_a?(Boost) %>
         <% user_boosts = boosts.group_by(&:creator).transform_values(&:count) %>
-        <div class="boost flex-inline align-start gap fill-white border-radius center position-relative">
+        <div class="comment--upvotes flex-inline align-start gap fill-white border-radius center position-relative">
           <%= user_boosts.map { |user, count| "#{user.name} +#{count}" }.to_sentence %>
         </div>
         <% boosts.clear %>

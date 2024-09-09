@@ -1,10 +1,11 @@
-<div class="comment flex align-start gap fill-shade border-radius full-width comment--mine">
-  <span class="avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= Current.user.initials %></strong></span>
-  <div class="flex flex-column full-width gap-half">
+<div class="comment flex align-start full-width comment--mine">
+  <figure class="comment__avatar avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= Current.user.initials %></strong></figure>
+
+  <div class="comment__content flex flex-column full-width fill-shade border-radius">
     <div class="comment__author flex align-center gap-half">
       <strong><%= Current.user.name %></strong>
     </div>
-    <div class="comment__body txt-align-start">
+    <div class="comment__body txt-align-start margin-block-start-half">
       <%= form_with model: Comment.new, url: bubble_comments_path(@bubble), class: "flex flex-column gap full-width" do | form | %>
         <%= form.text_area :body, class: "input", required: true, rows: 4,
               placeholder: (@bubble.comments.empty? && @bubble.creator == Current.user) ? "Add some notes…" : "Type your comment…" %>

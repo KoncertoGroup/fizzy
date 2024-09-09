@@ -1,37 +1,17 @@
-.comment {
-  margin-inline-end: calc(var(--block-space) * 1.5);
-  padding:
-      calc(var(--block-space) * 1.5)
-      calc(var(--inline-space) * 2)
-      calc(var(--block-space) * 2)
-      var(--inline-space);
+.comments {
+  --avatar-size: 2.33em;
 
-  &:target {
-    background-color: var(--color-selected);
-  }
+  max-inline-size: 90ch;
+}
 
-  .avatar {
-    margin-block-start: -0.5em;
-    margin-inline-start: calc(-2.65em + var(--inline-space));
-  }
+.comment__avatar {
+  margin-block-start: var(--block-space-half);
+  margin-inline: auto calc(var(--block-space) * -0.5);
+  position: relative;
+  z-index: 1;
 
-  &:is(.comment--mine) {
-    background-color: var(--color-selected);
-    flex-direction: row-reverse;
-    margin-inline: calc(var(--block-space) * 1.5) auto;
-    padding:
-        calc(var(--block-space) * 1.5)
-        var(--inline-space)
-        calc(var(--block-space) * 2)
-        calc(var(--inline-space) * 2);
-
-    .avatar {
-      margin-inline: auto calc(-2.65em + var(--inline-space));
-    }
-
-    .comment__author {
-      flex-direction: row-reverse;
-    }
+  .comment--mine & {
+    margin-inline: calc(var(--block-space) * -0.5) auto;
   }
 }
 
@@ -47,13 +27,34 @@
   }
 }
 
-.boost {
-  margin-block: calc(var(--block-space) * -2);
-  padding: var(--block-space) var(--block-space-double);
-  z-index: 1;
+.comment__content {
+  margin-inline: 0 var(--avatar-size);
+  padding: var(--block-space);
 
-  + .boost,
-  &:has( + .boost) {
-    margin-block: 0;
+  .comment--mine & {
+    background-color: var(--color-selected);
+    margin-inline: var(--avatar-size) 0;
   }
+
+  .comment:has(+ .comment--upvotes) & {
+    padding-block-end: calc(var(--block-space) * 1.33);
+  }
+}
+
+.comment--mine {
+  flex-direction: row-reverse;
+
+  .comment__author {
+    flex-direction: row-reverse;
+  }
+}
+
+.comment__timestamp {
+  color: var(--color-ink);
+  opacity: 0.5;
+}
+
+.comment--upvotes{
+  margin-block: calc(var(--block-space) * -1.33);
+  padding: var(--block-space-half) var(--inline-space-double);
 }
