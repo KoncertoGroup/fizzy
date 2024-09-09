@@ -4,8 +4,6 @@ body {
 }
 
 :where(#main) {
-  container-type: inline-size;
-  font-size: var(--font-medium-responsive);
   inline-size: 100vw;
   margin-inline: auto;
   max-inline-size: 100vw;
