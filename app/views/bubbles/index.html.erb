@@ -26,7 +26,9 @@
 <% end %>
 
 <section class="windshield flex-inline flex-wrap gap-half justify-center align-end">
-  <%= render @bubbles.last(10) %>
+  <% cache([@most_active_bubbles, 'stable_shuffle']) do %>
+    <%= render @most_active_bubbles.sort_by { |bubble| Digest::MD5.hexdigest("#{bubble.id}#{@most_active_bubbles.cache_key}") } %>
+  <% end %>
 </section>
 
 <section class="bubbles-list unpad-inline center margin-block-start">
