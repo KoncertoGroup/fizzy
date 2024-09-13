@@ -85,7 +85,7 @@
   &:is(.bubble__boosts) {
     aspect-ratio: 1;
     display: flex;
-    inset: 75cqi 3cqi auto auto;
+    inset: 75cqi 5cqi auto auto;
     min-inline-size: 6ch;
     padding: 0;
     place-items: center;
