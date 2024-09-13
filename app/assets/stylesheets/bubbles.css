@@ -135,6 +135,7 @@
 
   &.bubble__date {
     aspect-ratio: 1;
+    cursor: pointer;
     inset: 2cqi 2cqi auto auto;
 
     label {
