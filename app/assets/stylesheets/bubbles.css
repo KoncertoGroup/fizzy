@@ -85,7 +85,7 @@
   &:is(.bubble__boosts) {
     aspect-ratio: 1;
     display: flex;
-    inset: 55cqi -2cqi auto auto;
+    inset: 75cqi 3cqi auto auto;
     min-inline-size: 6ch;
     padding: 0;
     place-items: center;
@@ -105,13 +105,13 @@
   }
 
   &.bubble__tag {
-    inset: auto auto 10cqi -3cqi;
+    inset: auto auto -6cqi 15cqi;
 
     + & {
-      inset: auto auto -2cqi 13cqi;
+      inset: auto auto 8cqi 5cqi;
 
       + & {
-        inset: auto auto -12cqi 29cqi;
+        inset: auto auto 22cqi -2cqi;
       }
     }
 
