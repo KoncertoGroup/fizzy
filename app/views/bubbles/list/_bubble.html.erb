@@ -14,6 +14,6 @@
     <% bubble.tags.each do |tag| %>
       <%= link_to "##{tag.title}", bubbles_path(tag_id: tag.id), style: "color: #{ bubble.color }" %>
     <% end %>
-    <time class="txt-nowrap flex-item-justify-end"><%= bubble.created_at.strftime("%b %d").html_safe %></time>
+    <time class="txt-nowrap flex-item-justify-end"><%= bubble.created_at.strftime("%b %d") %></time>
   </small>
 </li>
