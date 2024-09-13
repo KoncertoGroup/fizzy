@@ -22,8 +22,5 @@ fi
 announce "Removing old logs and tempfiles"
 rails log:clear tmp:clear
 
-announce "Restarting services"
-rails restart
-
 echo
 echo "Start developing with ./bin/dev"
