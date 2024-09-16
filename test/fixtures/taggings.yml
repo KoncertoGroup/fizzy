@@ -1,17 +1,15 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  bubble: one
+  bubble: logo
   tag: one
 
 two:
-  bubble: two
+  bubble: layout
   tag: two
 
 three:
-  bubble: three
+  bubble: layout
   tag: one
 
 four:
-  bubble: three
+  bubble: text
   tag: two

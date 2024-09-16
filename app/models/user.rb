@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
   has_secure_password validations: false
 
+  has_many :accesses, dependent: :destroy
+  has_many :projects, through: :accesses
+
   normalizes :email_address, with: ->(value) { value.strip.downcase }
 
   def initials
@@ -15,7 +18,8 @@ class User < ApplicationRecord
 
   def deactivate
     transaction do
-      sessions.delete_all
+      sessions.destroy_all
+      accesses.destroy_all
       update! active: false, email_address: deactived_email_address
     end
   end
