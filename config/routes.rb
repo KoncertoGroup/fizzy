@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resource :session
 
+  resources :projects
+
   resources :bubbles do
     resource :image, controller: "bubbles/images"
 
