@@ -47,7 +47,7 @@ module CommentsHelper
 
       safe_join(items.chunk_while { |i, j| grouped_item?(i) && grouped_item?(j) }.map do |chunk|
         if chunk.first.is_a?(Comment)
-          render partial: "comments/comment", object: chunk.first
+          render "comments/comment", comment: chunk.first
         else
           render_grouped_items(chunk)
         end
