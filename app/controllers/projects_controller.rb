@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Current.account.projects.create!(project_params)
-    redirect_to project_url(@project)
+    redirect_to project_bubbles_url(@project)
   end
 
   def edit
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update!(project_params)
-    redirect_to project_url(@project)
+    redirect_to project_bubbles_url(@project)
   end
 
   def destroy
