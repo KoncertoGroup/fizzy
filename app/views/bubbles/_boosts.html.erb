@@ -4,5 +4,8 @@
         animation_play_class: "boosting",
         toggle_class_toggle_class: "boosting",
         action: "animationend->toggle-class#toggle" } do %>
-  <%= turbo_frame_tag dom_id(bubble, :boosts), src: project_bubble_boosts_path(bubble.project, bubble) %>
+
+  <%= turbo_frame_tag dom_id(bubble, :boosts) do %>
+    <%= render "boosts/boosts", bubble: bubble %>
+  <% end %>
 <% end %>
