@@ -2,24 +2,24 @@
 
 one:
   body: ""
-  creator: :jz
-  bubble: one
+  creator: jz
+  bubble: logo
   created_at: <%= 3.seconds.from_now %>
 
 two:
   body: ""
-  creator: :jz
-  bubble: two
+  creator: jz
+  bubble: layout
   created_at: <%= 3.seconds.from_now %>
 
 three:
   body: ""
-  creator: :kevin
-  bubble: one
+  creator: kevin
+  bubble: logo
   created_at: <%= 3.seconds.from_now %>
 
 four:
   body: ""
-  creator: :jz
-  bubble: one
+  creator: jz
+  bubble: logo
   created_at: <%= 3.seconds.from_now %>

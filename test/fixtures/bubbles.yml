@@ -9,7 +9,6 @@ logo:
 layout:
   project: writebook
   creator: david
-  creator: jz
   title: Layout is broken
   body: The page scrolls horizontally on mobile devices.
   color: '#698F9C'
