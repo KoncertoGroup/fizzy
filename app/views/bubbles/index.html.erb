@@ -11,14 +11,14 @@
       <% if @tag %>
         in <%= @tag.title %>
 
-        <%= link_to bubbles_path, class: "btn txt-small" do %>
+        <%= link_to project_bubbles_path(@project), class: "btn txt-small" do %>
           <%= image_tag "remove.svg", aria: { hidden: true }, size: 24 %>
           <span class="for-screen-reader">Clear</span>
         <% end %>
       <% end %>
     </h1>
 
-    <%= button_to bubbles_path, method: :post, params: { bubble: { title: "Untitled"} }, class: "btn btn--plain", form_class: "flex-item-justify-end" do %>
+    <%= button_to project_bubbles_path(@project), method: :post, params: { bubble: { title: "Untitled"} }, class: "btn btn--plain", form_class: "flex-item-justify-end" do %>
       <%= image_tag "bubble-add.svg", aria: { hidden: true }, size: 24 %>
       <span class="for-screen-reader">Create a new bubble</span>
     <% end %>

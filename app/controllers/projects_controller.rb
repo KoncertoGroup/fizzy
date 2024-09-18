@@ -11,10 +11,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Current.account.projects.create!(project_params)
-    redirect_to @project
-  end
-
-  def show
+    redirect_to project_url(@project)
   end
 
   def edit
@@ -22,7 +19,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update!(project_params)
-    redirect_to @project
+    redirect_to project_url(@project)
   end
 
   def destroy

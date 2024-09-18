@@ -6,13 +6,13 @@
     </svg>
   </div>
 
-  <%= link_to bubble, class: "bubble__title-link flex align-center gap flex-item-grow min-width" do %>
+  <%= link_to project_bubble_path(bubble.project, bubble), class: "bubble__title-link flex align-center gap flex-item-grow min-width" do %>
     <strong class="bubble__title-text flex--inline gap-half overflow-ellipsis"><%= bubble.title %></strong>
   <% end %>
 
   <small class="flex align-center gap flex-item-no-shrink">
     <% bubble.tags.each do |tag| %>
-      <%= link_to "##{tag.title}", bubbles_path(tag_id: tag.id), style: "color: #{ bubble.color }" %>
+      <%= link_to "##{tag.title}", project_bubbles_path(bubble.project, tag_id: tag.id), style: "color: #{bubble.color}" %>
     <% end %>
     <time class="txt-nowrap flex-item-justify-end"><%= bubble.created_at.strftime("%b %d") %></time>
   </small>

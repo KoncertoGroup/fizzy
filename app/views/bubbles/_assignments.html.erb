@@ -1,5 +1,5 @@
 <span class="bubble__bubble bubble__meta bubble__assignee <%= "bubble__assignee--new" if bubble.assignees.none? %>">
-  <%= form_with model: [bubble, Assignment.new], data: { controller: "form" } do |form| %>
+  <%= form_with model: Assignment.new, url: project_bubble_assignments_path(bubble.project, bubble), data: { controller: "form" } do |form| %>
     <label class="btn btn--plain position-relative fill-transparent" style="--btn-icon-size: 2em;">
       <% if bubble.assignees.any? %>
         <% if bubble.assignees.many? %>

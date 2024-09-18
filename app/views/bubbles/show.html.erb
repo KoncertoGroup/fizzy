@@ -1,6 +1,6 @@
 <% content_for :header do %>
   <nav>
-    <%= link_to bubbles_path, class: "btn flex-item-justify-start" do %>
+    <%= link_to project_bubbles_path(@bubble.project), class: "btn flex-item-justify-start" do %>
       <%= image_tag "arrow-left.svg", aria: { hidden: true }, size: 24 %>
       <span class="for-screen-reader">All Bubbles</span>
     <% end %>
@@ -13,7 +13,7 @@
 
       <dialog class="panel" id="bubble-edit-panel" data-dialog-target="dialog" popover>
         <div class="flex pad">
-          <%= turbo_frame_tag @bubble, :edit, src: edit_bubble_path(@bubble), target: "_top" %>
+          <%= turbo_frame_tag @bubble, :edit, src: edit_project_bubble_path(@bubble.project, @bubble), target: "_top" %>
         </div>
       </dialog>
     </div>

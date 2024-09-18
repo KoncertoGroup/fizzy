@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :new_tag do %>
-  <%= form_with model: Tag.new, url: bubble_tags_path(@bubble), data: { turbo_frame: "_top" } do |form| %>
+  <%= form_with model: Tag.new, url: project_bubble_tags_path(@bubble.project, @bubble), data: { turbo_frame: "_top" } do |form| %>
     <%= form.text_field :title, class: "input borderless", autofocus: "on", list: "tags-list" %>
     <%= form.submit "Create Tag", hidden: true %>
 

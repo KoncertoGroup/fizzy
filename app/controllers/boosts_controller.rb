@@ -1,5 +1,5 @@
 class BoostsController < ApplicationController
-  include BubbleScoped
+  include BubbleScoped, ProjectScoped
 
   def index
   end

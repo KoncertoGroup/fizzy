@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  include ProjectScoped
+
   before_action :set_bubble, only: %i[ new create ]
   before_action :set_tag, only: :destroy
 
@@ -11,12 +13,12 @@ class TagsController < ApplicationController
 
   def create
     @bubble.tags << Tag.find_or_create_by!(tag_params)
-    redirect_to @bubble
+    redirect_to project_bubble_url(@project, @bubble)
   end
 
   def destroy
     @tag.destroy
-    redirect_to tags_path
+    redirect_to project_tags_url(@project)
   end
 
   private
@@ -29,6 +31,6 @@ class TagsController < ApplicationController
     end
 
     def set_bubble
-      @bubble = Bubble.find(params[:bubble_id])
+      @bubble = @project.bubbles.find(params[:bubble_id])
     end
 end

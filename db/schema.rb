@@ -21,7 +21,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_17_174301) do
     t.index ["user_id"], name: "index_accesses_on_user_id"
   end
 
->>>>>>> d17053b (Introduce projects and accesses)
   create_table "accounts", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
