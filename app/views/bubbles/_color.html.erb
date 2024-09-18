@@ -6,9 +6,9 @@
 
   <dialog class="bubble__color-picker" data-dialog-target="dialog">
     <%= form_with model: bubble, url: project_bubble_path(bubble.project, bubble), data: { controller: "form", action: "change->form#submit" } do |form| %>
-      <% Bubble.colors.keys.each do |color| %>
+      <% Bubble::COLORS.each do |color| %>
         <span class="bubble__color-picker__color">
-          <label class="btn btn--circle" style="--btn-background: <%= color -%>" title="<%= color %>">
+          <label class="btn btn--circle" style="--btn-background: <%= color %>" title="<%= color %>">
             <%= form.radio_button :color, color %>
             <%= image_tag "check.svg", aria: { hidden: "true" }, size: 24, class: "checked" %>
             <span class="for-screen-reader"><%= color %></span>

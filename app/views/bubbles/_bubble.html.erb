@@ -1,4 +1,7 @@
-<div class="bubble" data-controller="upload-preview" style="view-transition-name: bubble-<%= bubble.id -%>; --bubble-color: <%= bubble.color %>; <%= bubble_rotation(bubble) -%> <%= bubble_size(bubble) %>">
+<div class="bubble"
+  style="view-transition-name: bubble-<%= bubble.id -%>; --bubble-color: <%= bubble.color %>; <%= bubble_rotation(bubble) %> <%= bubble_size(bubble) %>"
+  data-controller="upload-preview">
+
   <h1 class="bubble__title">
     <%= turbo_frame_tag bubble, :edit do %>
       <%= link_to bubble.title, edit_project_bubble_path(bubble.project, bubble), class: "txt-undecorated" %>
