@@ -1,14 +1,14 @@
-logo_jz:
+logo_agreement_jz:
   body: I agree.
   creator: jz
   bubble: logo
 
-logo_kevin:
+logo_agreement_kevin:
   body: Same, let’s do it.
   creator: kevin
   bubble: logo
 
-layout_:
+layout_overflowing_david:
   body: The text is overflowing the container.
   creator: david
   bubble: layout
