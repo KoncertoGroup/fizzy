@@ -34,4 +34,5 @@
   overflow: hidden;
   padding-block-start: 100%;
   position: absolute;
+  z-index: 1;
 }
