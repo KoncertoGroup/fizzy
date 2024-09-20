@@ -16,17 +16,15 @@
   padding: 1cqi;
 }
 
-.windshield__link {
-  content: "";
-  inset: 0;
-  overflow: hidden;
-  padding-block-start: 100%;
-  position: absolute;
-  z-index: 1;
-}
-
 .windshield__container {
   aspect-ratio: 16 / 9;
   container-type: inline-size;
-  inline-size: 50ch;
+  inline-size: 40ch;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-selected);
+      border-color: var(--color-selected-dark);
+    }
+  }
 }
