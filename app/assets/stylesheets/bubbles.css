@@ -56,7 +56,7 @@
     }
   }
 
-  .windshield &:nth-of-type(n+5) {
+  .windshield &:nth-of-type(n+6) {
     align-self: start;
   }
 
