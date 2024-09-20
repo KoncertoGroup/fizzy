@@ -1,5 +1,5 @@
-.projects{
-  --gap: clamp(var(--inline-space), 2cqi, calc(var(--inline-space) * 3));
+.projects {
+  --gap: 2cqi;
   --hover-size: 0;
   --column-gap: var(--gap);
   --row-gap: var(--gap);
@@ -10,16 +10,22 @@
 
 .project__windshield {
   --border-radius: 1.5em;
-  --bubble-size: 4cqi;
+  --bubble-size: 17cqi;
+  --column-gap: 1cqi;
+  --row-gap: 1cqi;
 
   aspect-ratio: 16 / 9;
-  box-shadow: inset 0 0.25em 1em 0 rgb(0 0 0 / 20%);
-  inline-size: 30ch;
+  container-type: inline-size;
+  inline-size: 50ch;
   max-inline-size: 100%;
-  padding: var(--gap);
+  padding: 1cqi;
 
   > * {
     flex-shrink: 1;
+  }
+
+  .bubble:nth-of-type(n+6) {
+    align-self: start;
   }
 }
 
