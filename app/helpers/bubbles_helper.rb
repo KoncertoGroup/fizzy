@@ -9,13 +9,14 @@ module BubblesHelper
 
   def bubble_size(bubble)
     activity = bubble.boosts.size + bubble.comments.size
-    rank = case activity
-            when 0..5   then 'one'
-            when 6..10  then 'two'
-            when 11..25 then 'three'
-            when 26..50 then 'four'
-            else             'five'
-            end
+    rank =
+      case activity
+      when 0..5   then "one"
+      when 6..10  then "two"
+      when 11..25 then "three"
+      when 26..50 then "four"
+      else             "five"
+      end
 
     "--bubble-size: var(--bubble-size-#{rank});"
   end
