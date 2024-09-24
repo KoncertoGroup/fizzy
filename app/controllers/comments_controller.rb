@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  include BubbleScoped, ProjectScoped
+  include BubbleScoped, BucketScoped
 
   def create
     @bubble.comments.create!(comment_params)
-    redirect_to project_bubble_url(@project, @bubble)
+    redirect_to bucket_bubble_url(@bucket, @bubble)
   end
 
   private

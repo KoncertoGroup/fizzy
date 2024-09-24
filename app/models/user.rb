@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_secure_password validations: false
 
   has_many :accesses, dependent: :destroy
-  has_many :projects, through: :accesses
-  has_many :bubbles, through: :projects
+  has_many :buckets, through: :accesses
+  has_many :bubbles, through: :buckets
 
   has_many :assignments
   has_many :assigned_bubbles, through: :assignments, source: :bubble

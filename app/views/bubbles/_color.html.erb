@@ -5,7 +5,7 @@
   </button>
 
   <dialog class="bubble__color-picker" data-dialog-target="dialog">
-    <%= form_with model: bubble, url: project_bubble_path(bubble.project, bubble), data: { controller: "form", action: "change->form#submit" } do |form| %>
+    <%= form_with model: bubble, url: bucket_bubble_path(bubble.bucket, bubble), data: { controller: "form", action: "change->form#submit" } do |form| %>
       <% Bubble::COLORS.each do |color| %>
         <span class="bubble__color-picker__color">
           <label class="btn btn--circle" style="--btn-background: <%= color %>" title="<%= color %>">

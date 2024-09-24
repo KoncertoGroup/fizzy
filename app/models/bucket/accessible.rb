@@ -1,4 +1,4 @@
-module Project::Accessible
+module Bucket::Accessible
   extend ActiveSupport::Concern
 
   included do

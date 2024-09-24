@@ -7,6 +7,6 @@ module BubbleScoped
 
   private
     def set_bubble
-      @bubble = @project.bubbles.find(params[:bubble_id])
+      @bubble = @bucket.bubbles.find(params[:bubble_id])
     end
 end

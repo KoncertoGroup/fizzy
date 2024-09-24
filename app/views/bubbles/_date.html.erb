@@ -1,4 +1,4 @@
-<%= form_with model: bubble, url: project_bubble_path(bubble.project, bubble), data: { controller: "form" } do |form| %>
+<%= form_with model: bubble, url: bucket_bubble_path(bubble.bucket, bubble), data: { controller: "form" } do |form| %>
   <% if bubble.due_on.present? %>
     <label class="bubble__bubble bubble__meta bubble__date">
       <%= bubble.due_on.strftime("%b <br> %d").html_safe %>

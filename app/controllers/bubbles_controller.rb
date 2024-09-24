@@ -1,5 +1,5 @@
 class BubblesController < ApplicationController
-  include ProjectScoped
+  include BucketScoped
 
   before_action :set_bubble, only: %i[ show edit update ]
 
@@ -9,18 +9,18 @@ class BubblesController < ApplicationController
       @bubbles = @tag.bubbles
       @most_active_bubbles = @tag.bubbles.left_joins(:comments, :boosts).group(:id).order(Arel.sql("COUNT(comments.id) + COUNT(boosts.id) DESC")).limit(10)
     else
-      @bubbles = @project.bubbles.order(created_at: :desc)
-      @most_active_bubbles = @project.bubbles.left_joins(:comments, :boosts).group(:id).order(Arel.sql("COUNT(comments.id) + COUNT(boosts.id) DESC")).limit(10)
+      @bubbles = @bucket.bubbles.order(created_at: :desc)
+      @most_active_bubbles = @bucket.bubbles.left_joins(:comments, :boosts).group(:id).order(Arel.sql("COUNT(comments.id) + COUNT(boosts.id) DESC")).limit(10)
     end
   end
 
   def new
-    @bubble = @project.bubbles.build
+    @bubble = @bucket.bubbles.build
   end
 
   def create
-    @bubble = @project.bubbles.create!(bubble_params)
-    redirect_to project_bubble_url(@project, @bubble)
+    @bubble = @bucket.bubbles.create!(bubble_params)
+    redirect_to bucket_bubble_url(@bucket, @bubble)
   end
 
   def show
@@ -31,13 +31,13 @@ class BubblesController < ApplicationController
 
   def update
     @bubble.update!(bubble_params)
-    redirect_to project_bubble_url(@project, @bubble)
+    redirect_to bucket_bubble_url(@bucket, @bubble)
   end
 
 
   private
     def set_bubble
-      @bubble = @project.bubbles.find(params[:id])
+      @bubble = @bucket.bubbles.find(params[:id])
     end
 
     def bubble_params

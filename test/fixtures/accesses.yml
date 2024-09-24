@@ -1,11 +1,11 @@
 writebook_david:
-  project: writebook
+  bucket: writebook
   user: david
 
 writebook_jz:
-  project: writebook
+  bucket: writebook
   user: jz
 
 writebook_kevin:
-  project: writebook
+  bucket: writebook
   user: kevin

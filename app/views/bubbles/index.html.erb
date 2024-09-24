@@ -1,33 +1,33 @@
-<% @page_title = @project.name %>
+<% @page_title = @bucket.name %>
 
 <% content_for :header do %>
   <nav>
-    <%= link_to projects_path, class: "btn flex-item-justify-start" do %>
+    <%= link_to buckets_path, class: "btn flex-item-justify-start" do %>
       <%= image_tag "grid.svg", aria: { hidden: true }, size: 24 %>
-      <span class="for-screen-reader">Projects</span>
+      <span class="for-screen-reader">Buckets</span>
     <% end %>
 
     <h1 class="txt-xx-large margin-none flex align-center gap-half">
-      Bubbled up in <%= @project.name %>
+      Bubbled up in <%= @bucket.name %>
 
       <% if @tag %>
         tagged <%= @tag.title %>
 
-        <%= link_to project_bubbles_path(@project), class: "btn txt-small" do %>
+        <%= link_to bucket_bubbles_path(@bucket), class: "btn txt-small" do %>
           <%= image_tag "remove.svg", aria: { hidden: true }, size: 24 %>
           <span class="for-screen-reader">Clear</span>
         <% end %>
       <% end %>
     </h1>
 
-    <%= button_to project_bubbles_path(@project), method: :post, params: { bubble: { title: "Untitled"} }, class: "btn btn--plain", form_class: "flex-item-justify-end" do %>
+    <%= button_to bucket_bubbles_path(@bucket), method: :post, params: { bubble: { title: "Untitled"} }, class: "btn btn--plain", form_class: "flex-item-justify-end" do %>
       <%= image_tag "bubble-add.svg", aria: { hidden: true }, size: 24 %>
       <span class="for-screen-reader">Create a new bubble</span>
     <% end %>
   </nav>
 <% end %>
 
-<section class="windshield flex-inline flex-wrap gap justify-center align-end" style="view-transition-name: windshield_<%= @project.id %>">
+<section class="windshield flex-inline flex-wrap gap justify-center align-end" style="view-transition-name: windshield_<%= @bucket.id %>">
   <%= render @most_active_bubbles %>
 </section>
 

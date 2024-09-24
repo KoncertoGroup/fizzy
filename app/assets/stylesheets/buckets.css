@@ -1,4 +1,4 @@
-.projects {
+.buckets {
   --gap: 2cqi;
   --hover-size: 0;
   --column-gap: var(--gap);
@@ -8,7 +8,7 @@
   padding: var(--gap);
 }
 
-.project__windshield {
+.bucket__windshield {
   --border-radius: 1.5em;
 
   margin-block: 0;

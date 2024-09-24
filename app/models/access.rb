@@ -1,4 +1,4 @@
 class Access < ApplicationRecord
-  belongs_to :project
+  belongs_to :bucket
   belongs_to :user
 end

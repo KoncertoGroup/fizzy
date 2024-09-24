@@ -1,5 +1,5 @@
 class BoostsController < ApplicationController
-  include BubbleScoped, ProjectScoped
+  include BubbleScoped, BucketScoped
 
   def create
     @bubble.boosts.create!

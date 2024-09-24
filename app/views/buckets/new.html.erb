@@ -1,0 +1,8 @@
+<% @page_title = "Create a new bucket" %>
+
+<h1>New Bucket</h1>
+
+<%= form_with model: @bucket do |form| %>
+  <p>Name:<br><%= form.text_field :name %></p>
+  <p><%= form.submit %>
+<% end %>

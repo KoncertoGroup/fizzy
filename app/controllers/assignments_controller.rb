@@ -1,16 +1,16 @@
 class AssignmentsController < ApplicationController
-  include BubbleScoped, ProjectScoped
+  include BubbleScoped, BucketScoped
 
   before_action :set_assignment, only: :update
 
   def create
     @assignment = @bubble.assignments.create!(assignment_params)
-    redirect_to project_bubble_url(@project, @bubble)
+    redirect_to bucket_bubble_url(@bucket, @bubble)
   end
 
   def update
     @assignment.update!(assignment_params)
-    redirect_to project_bubble_url(@project, @bubble)
+    redirect_to bucket_bubble_url(@bucket, @bubble)
   end
 
   private

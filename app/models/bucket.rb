@@ -1,4 +1,4 @@
-class Project < ApplicationRecord
+class Bucket < ApplicationRecord
   include Accessible
 
   belongs_to :account

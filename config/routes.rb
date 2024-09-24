@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "projects#index"
+  root "buckets#index"
 
   resource :session
 
@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :projects do
-    resource :access, controller: "projects/accesses"
+  resources :buckets do
+    resource :access, controller: "buckets/accesses"
 
     resources :bubbles do
       resource :image, controller: "bubbles/images"

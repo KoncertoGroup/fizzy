@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_09_19_191155) do
+ActiveRecord::Schema[8.0].define(version: 2024_09_24_191654) do
   create_table "accesses", force: :cascade do |t|
-    t.integer "project_id", null: false
+    t.integer "bucket_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id", "user_id"], name: "index_accesses_on_project_id_and_user_id", unique: true
-    t.index ["project_id"], name: "index_accesses_on_project_id"
+    t.index ["bucket_id", "user_id"], name: "index_accesses_on_bucket_id_and_user_id", unique: true
+    t.index ["bucket_id"], name: "index_accesses_on_bucket_id"
     t.index ["user_id"], name: "index_accesses_on_user_id"
   end
 
@@ -82,8 +82,18 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_19_191155) do
     t.datetime "updated_at", null: false
     t.integer "creator_id", null: false
     t.date "due_on"
-    t.integer "project_id", null: false
-    t.index ["project_id"], name: "index_bubbles_on_project_id"
+    t.integer "bucket_id", null: false
+    t.index ["bucket_id"], name: "index_bubbles_on_bucket_id"
+  end
+
+  create_table "buckets", force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.integer "creator_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_buckets_on_account_id"
+    t.index ["creator_id"], name: "index_buckets_on_creator_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -92,16 +102,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_19_191155) do
     t.integer "bubble_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "projects", force: :cascade do |t|
-    t.integer "account_id", null: false
-    t.integer "creator_id", null: false
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_projects_on_account_id"
-    t.index ["creator_id"], name: "index_projects_on_creator_id"
   end
 
   create_table "sessions", force: :cascade do |t|

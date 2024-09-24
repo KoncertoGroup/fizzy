@@ -1,8 +1,8 @@
 class Bubbles::ImagesController < ApplicationController
-  include BubbleScoped, ProjectScoped
+  include BubbleScoped, BucketScoped
 
   def destroy
     @bubble.image.purge_later
-    redirect_to project_bubble_url(@bubble.project, @bubble)
+    redirect_to bucket_bubble_url(@bubble.bucket, @bubble)
   end
 end
