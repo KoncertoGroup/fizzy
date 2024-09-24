@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   before_action :set_account_from_join_code
 
   def new
-    @user = User.new
+    @user = @account.users.build
   end
 
   def create
-    @user = @account.users.create!(user_params)
-    start_new_session_for @user
+    user = @account.users.create!(user_params)
+    start_new_session_for user
     redirect_to root_url
   end
 
