@@ -17,7 +17,7 @@
 
       <%= form.collection_select :user_id, User.active, :id, :name, { prompt: "Assign to…", selected: bubble.assignees.pluck(:id) },
             class: "input input--hidden txt-medium",
-            data: { action: "change->form#submit click->form#showPicker" } } %>
+            data: { action: "change->form#submit click->form#showPicker" } %>
       <span class="for-screen-reader">Assign to…</span>
     </label>
 
