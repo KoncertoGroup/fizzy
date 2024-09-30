@@ -3,6 +3,6 @@
 <h1>New Bucket</h1>
 
 <%= form_with model: @bucket do |form| %>
-  <p>Name:<br><%= form.text_field :name %></p>
+  <p>Name:<br><%= form.text_field :name, required: true %></p>
   <p><%= form.submit %>
 <% end %>
