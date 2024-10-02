@@ -105,6 +105,15 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_02_163242) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pops", force: :cascade do |t|
+    t.integer "bubble_id", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bubble_id"], name: "index_pops_on_bubble_id", unique: true
+    t.index ["user_id"], name: "index_pops_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -145,6 +154,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_02_163242) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "pops", "bubbles"
+  add_foreign_key "pops", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "taggings", "bubbles"
   add_foreign_key "taggings", "tags"

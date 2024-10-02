@@ -1,5 +1,5 @@
 class Bubble < ApplicationRecord
-  include Assignable, Colored, Searchable, Taggable
+  include Assignable, Colored, Poppable, Searchable, Taggable
 
   belongs_to :bucket
   belongs_to :creator, class_name: "User", default: -> { Current.user }

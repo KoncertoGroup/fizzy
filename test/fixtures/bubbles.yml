@@ -16,3 +16,9 @@ text:
   creator: kevin
   title: The text is too small
   color: "#3B4B59"
+
+shipping:
+  bucket: writebook
+  creator: kevin
+  title: We need to ship the app
+  color: "#ED8008"

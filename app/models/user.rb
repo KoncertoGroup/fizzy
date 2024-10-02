@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :accesses, dependent: :destroy
   has_many :buckets, through: :accesses
   has_many :bubbles, through: :buckets
+  has_many :pops, dependent: :nullify
 
   has_many :assignments, foreign_key: :assignee_id, dependent: :destroy
   has_many :assignings, foreign_key: :assigner_id, class_name: "Assignment"
