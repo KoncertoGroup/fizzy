@@ -26,13 +26,13 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
-      "fingerprint": "d5f274a67e6a10599ca19e5cbed406e2781f8ccdc58dfd2004f2da7438725176",
+      "fingerprint": "bce4f3b9f7cb59333f08e0597859903a473f0ebd0ef07e0deaa1b4bb64598058",
       "check_name": "Render",
       "message": "Render path contains parameter value",
       "file": "app/views/bubbles/index.html.erb",
       "line": 31,
       "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => @bucket.bubbles.ordered_by_activity.limit(10).joins(:tags).where(:tags => Current.account.tags.find(params[:tag_id])), {})",
+      "code": "render(action => @bucket.bubbles.ordered_by_activity.limit(10).tagged_with(Current.account.tags.find(params[:tag_id])), {})",
       "render_path": [
         {
           "type": "controller",
@@ -58,6 +58,6 @@
       "note": ""
     }
   ],
-  "updated": "2024-10-02 12:59:29 -0400",
+  "updated": "2024-10-02 16:07:06 -0400",
   "brakeman_version": "6.2.1"
 }
