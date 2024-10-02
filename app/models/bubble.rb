@@ -1,5 +1,5 @@
 class Bubble < ApplicationRecord
-  include Colored
+  include Colored, Searchable
 
   belongs_to :bucket
   belongs_to :creator, class_name: "User", default: -> { Current.user }
@@ -14,4 +14,6 @@ class Bubble < ApplicationRecord
   has_many :assignees, through: :assignments, source: :user
 
   has_one_attached :image, dependent: :purge_later
+
+  searchable_by :title, using: :bubbles_search_index
 end
