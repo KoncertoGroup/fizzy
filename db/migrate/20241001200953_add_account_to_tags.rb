@@ -4,7 +4,8 @@ class AddAccountToTags < ActiveRecord::Migration[8.0]
       t.references :account, null: true
     end
 
-    Tag.update_all account_id: Account.first.id
+    execute "update tags set account_id = (select id from accounts limit 1)"
+
     change_column_null :tags, :account_id, false
   end
 end

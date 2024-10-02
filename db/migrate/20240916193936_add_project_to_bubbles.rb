@@ -4,7 +4,8 @@ class AddProjectToBubbles < ActiveRecord::Migration[8.0]
       t.references :project, null: true
     end
 
-    Bubble.update_all project_id: Project.first.id
+    execute "update bubbles set project_id = (select id from projects limit 1)"
+
     change_column_null :bubbles, :project_id, false
   end
 end

@@ -7,7 +7,5 @@ class CreateProjects < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
-
-    Account.first.projects.create! name: "Writebook", creator: User.first
   end
 end
