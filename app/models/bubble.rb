@@ -1,14 +1,11 @@
 class Bubble < ApplicationRecord
-  include Assignable, Colored, Searchable
+  include Assignable, Colored, Searchable, Taggable
 
   belongs_to :bucket
   belongs_to :creator, class_name: "User", default: -> { Current.user }
 
   has_many :comments, dependent: :destroy
   has_many :boosts, dependent: :destroy
-
-  has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggings
 
   has_one_attached :image, dependent: :purge_later
 

@@ -9,8 +9,8 @@ class BubblesController < ApplicationController
 
     if params[:tag_id]
       @tag = Current.account.tags.find(params[:tag_id])
-      @bubbles = @bubbles.joins(:tags).where(tags: @tag)
-      @most_active_bubbles = @most_active_bubbles.joins(:tags).where(tags: @tag)
+      @bubbles = @bubbles.tagged_with(@tag)
+      @most_active_bubbles = @most_active_bubbles.tagged_with(@tag)
     end
   end
 
