@@ -1,0 +1,29 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "6e41fafa4bc61e0923280ba247d7bbcb5e1f1c6ef99dcef5c28ec8aee997249c",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/models/concerns/searchable.rb",
+      "line": 13,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "joins(\"join #{using} idx on id = idx.rowid\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Searchable",
+        "method": "searchable_by"
+      },
+      "user_input": "using",
+      "confidence": "Medium",
+      "cwe_id": [
+        89
+      ],
+      "note": "String interpolation in query doesn't involve user data"
+    }
+  ],
+  "updated": "2024-10-02 13:56:18 +0100",
+  "brakeman_version": "6.2.1"
+}
