@@ -4,13 +4,13 @@ class BubblesController < ApplicationController
   before_action :set_bubble, only: %i[ show edit update ]
 
   def index
+    @bubbles = @bucket.bubbles.reverse_chronologically
+    @most_active_bubbles = @bucket.bubbles.ordered_by_activity.limit(10)
+
     if params[:tag_id]
       @tag = Current.account.tags.find(params[:tag_id])
-      @bubbles = @tag.bubbles
-      @most_active_bubbles = @tag.bubbles.left_joins(:comments, :boosts).group(:id).order(Arel.sql("COUNT(comments.id) + COUNT(boosts.id) DESC")).limit(10)
-    else
-      @bubbles = @bucket.bubbles.order(created_at: :desc)
-      @most_active_bubbles = @bucket.bubbles.left_joins(:comments, :boosts).group(:id).order(Arel.sql("COUNT(comments.id) + COUNT(boosts.id) DESC")).limit(10)
+      @bubbles = @bubbles.joins(:tags).where(tags: @tag)
+      @most_active_bubbles = @most_active_bubbles.joins(:tags).where(tags: @tag)
     end
   end
 

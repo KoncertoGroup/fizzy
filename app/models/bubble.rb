@@ -15,5 +15,8 @@ class Bubble < ApplicationRecord
 
   has_one_attached :image, dependent: :purge_later
 
+  scope :reverse_chronologically, -> { order(created_at: :desc, id: :desc) }
+  scope :ordered_by_activity, -> { left_joins(:comments, :boosts).group(:id).order(Arel.sql("COUNT(comments.id) + COUNT(boosts.id) DESC")) }
+
   searchable_by :title, using: :bubbles_search_index
 end
