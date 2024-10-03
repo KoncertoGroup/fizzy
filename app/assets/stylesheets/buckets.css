@@ -8,6 +8,12 @@
   padding: var(--gap);
 }
 
+.bucket__edit-btn {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+}
+
 .bucket__windshield {
   --border-radius: 1.5em;
 
@@ -17,14 +23,7 @@
 }
 
 .windshield__container {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 18 / 9;
   container-type: inline-size;
   inline-size: 40ch;
-
-  @media (hover: hover) {
-    &:hover {
-      background-color: var(--color-selected);
-      border-color: var(--color-selected-dark);
-    }
-  }
 }
