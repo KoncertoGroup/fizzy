@@ -16,6 +16,9 @@
   <%= link_to bucket_bubble_path(bubble.bucket, bubble), class: "bubble__link" do %>
     <span class="for-screen-reader"><%= bubble.title %></span>
   <% end %>
+  <% if bubble.popped? %>
+    <span class="bubble__popped">POPPED!</span>
+  <% end %>
 
   <%= render "bubbles/assignments", bubble: bubble %>
   <%= render "bubbles/boosts", bubble: bubble %>

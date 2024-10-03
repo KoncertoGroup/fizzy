@@ -22,7 +22,10 @@ Rails.application.routes.draw do
     resource :access, controller: "buckets/accesses"
 
     resources :bubbles do
-      resource :image, controller: "bubbles/images"
+      scope module: "bubbles" do
+        resource :image
+        resource :pop
+      end
 
       resources :assignments
       resources :boosts

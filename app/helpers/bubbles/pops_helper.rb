@@ -1,0 +1,2 @@
+module Bubbles::PopsHelper
+end

@@ -4,8 +4,8 @@ class BubblesController < ApplicationController
   before_action :set_bubble, only: %i[ show edit update ]
 
   def index
-    @bubbles = @bucket.bubbles.reverse_chronologically
-    @most_active_bubbles = @bucket.bubbles.ordered_by_activity.limit(10)
+    @bubbles = @bucket.bubbles.not_popped.reverse_chronologically
+    @most_active_bubbles = @bubbles.ordered_by_activity.limit(10)
 
     if params[:tag_id]
       @tag = Current.account.tags.find(params[:tag_id])
