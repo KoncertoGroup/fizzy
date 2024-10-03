@@ -10,6 +10,12 @@
     <strong class="bubble__title-text flex--inline gap-half overflow-ellipsis"><%= bubble.title %></strong>
   <% end %>
 
+  <% if bubble.due_on.present? %>
+    <time class="txt-nowrap txt-small fill-black txt-reversed border-radius" style="background-color: <%= bubble.color %>; padding: 0.4em 1em;">
+      <strong>DUE:</strong> <%= bubble.due_on.strftime("%b %d").html_safe %>
+    </time>
+  <% end %>
+
   <div class="flex align-center gap flex-item-no-shrink">
     <% bubble.assignees.each do |assignee| %>
       <figure class="avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= assignee.initials %></strong></figure>
