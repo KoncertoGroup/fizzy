@@ -6,6 +6,7 @@
   border-radius: var(--avatar-border-radius);
   display: grid;
   inline-size: var(--avatar-size, 2.65em);
+  line-height: 1;
   margin: 0;
   place-items: center;
 

@@ -10,6 +10,12 @@
     <strong class="bubble__title-text flex--inline gap-half overflow-ellipsis"><%= bubble.title %></strong>
   <% end %>
 
+  <div class="flex align-center gap flex-item-no-shrink">
+    <% bubble.assignees.each do |assignee| %>
+      <figure class="avatar fill-black txt-reversed flex-item-no-shrink"><strong><%= assignee.initials %></strong></figure>
+    <% end %>
+  <div>
+
   <small class="flex align-center gap flex-item-no-shrink">
     <% bubble.tags.each do |tag| %>
       <%= link_to "##{tag.title}", bucket_bubbles_path(bubble.bucket, tag_id: tag.id), style: "color: #{bubble.color}" %>
