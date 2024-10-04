@@ -15,7 +15,7 @@ class Users::AvatarsController < ApplicationController
 
   private
     def set_user
-      @user = User.find(params[:user_id])
+      @user = Current.account.users.find(params[:user_id])
     end
 
     def render_initials
