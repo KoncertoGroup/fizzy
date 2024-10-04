@@ -20,4 +20,8 @@ module BubblesHelper
 
     "--bubble-size: var(--bubble-size-#{rank});"
   end
+
+  def bubble_filter_params
+    params.permit(:term, :tag_id, :assignee_id)
+  end
 end

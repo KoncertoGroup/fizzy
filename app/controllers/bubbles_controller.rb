@@ -6,8 +6,8 @@ class BubblesController < ApplicationController
   def index
     @bubbles = @bucket.bubbles.not_popped
 
-    if params[:filter].present?
-      @bubbles = @bubbles.mentioning(params[:filter])
+    if params[:term].present?
+      @bubbles = @bubbles.mentioning(params[:term])
     end
 
     if params[:tag_id]
