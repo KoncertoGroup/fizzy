@@ -70,7 +70,7 @@
 
     <dialog class="filter__popup panel fill-white shadow" data-dialog-target="dialog">
       <menu class="filter__menu flex flex-column gap-half unpad margin-none txt-medium">
-        <% Current.account.users.order(:name).each do |user| %>
+        <% Current.account.users.active.order(:name).each do |user| %>
           <li><%= link_to user.name, bucket_bubbles_path(bucket, bubble_filter_params.merge(assignee_id: user.id)) %></li>
         <% end %>
       </menu>
