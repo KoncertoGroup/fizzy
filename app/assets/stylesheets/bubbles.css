@@ -91,7 +91,7 @@
 
 .bubble__bubble {
   background-color: var(--color-bg);
-  border: max(3px, 0.3em) solid var(--bubble-color);
+  border: max(3px, 0.2em) solid var(--bubble-color);
   border-radius: 50%;
   position: absolute;
   z-index: -1;
@@ -108,7 +108,14 @@
     padding: 0;
     place-items: center;
 
+    form {
+      block-size: 100%;
+      display: grid;
+      inline-size: 100%;
+    }
+
     .btn {
+      --btn-background: transparent;
       --btn-color: var(--bubble-color);
 
       appearance: none;
@@ -156,7 +163,8 @@
 
   &.bubble__assignee {
     aspect-ratio: 1;
-    inset: -1cqi auto auto 28cqi;
+    font-size: 4.5  cqi;
+    inset: -2cqi auto auto 26cqi;
     padding: 0.4em;
 
     select {
@@ -179,7 +187,8 @@
 
   &.bubble__attachment {
     aspect-ratio: 1;
-    inset: -4cqi 24cqi auto auto;
+    font-size: 4cqi;
+    inset: -5cqb 26cqi auto auto;
 
     .btn {
       font-size: 4cqi;
@@ -192,7 +201,7 @@
 
   &.bubble__color {
     cursor: pointer;
-    inset: 10cqi auto auto 0cqi;
+    inset: 8cqb auto auto 0.5cqi;
     padding: 0.4em;
 
     .windshield & {
@@ -203,7 +212,8 @@
   &.bubble__date {
     aspect-ratio: 1;
     cursor: pointer;
-    inset: 2cqb 2cqi auto auto;
+    font-size: 4.5cqi;
+    inset: 1cqb 1cqi auto auto;
 
     label {
       display: grid;
@@ -371,12 +381,16 @@
   position: relative;
   scale: 1.1;
   stroke: var(--bubble-color);
-  stroke-width: 1.1rem;
+  stroke-width: 1.1em;
   transform: rotate(var(--bubble-rotate));
   transition: all 200ms ease-out;
 
   .bubble:has(.bubble__link) & {
     z-index: -1;
+  }
+
+  .bubble__perma & {
+    stroke-width: 0.6em;
   }
 }
 
