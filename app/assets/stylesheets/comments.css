@@ -55,6 +55,17 @@
   .comment__author {
     flex-direction: row-reverse;
   }
+
+  .input {
+    &::placeholder {
+      color: var(--color-ink);
+      opacity: 0.5;
+    }
+
+    &::selection {
+      background-color: var(--color-selected-dark);
+    }
+  }
 }
 
 .comment__timestamp {
