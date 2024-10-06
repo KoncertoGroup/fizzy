@@ -4,7 +4,7 @@
     <span class="for-screen-reader">Change color</span>
   </button>
 
-  <dialog class="bubble__color-picker" data-dialog-target="dialog">
+  <dialog class="bubble__color-picker" data-dialog-target="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
     <%= form_with model: bubble, url: bucket_bubble_path(bubble.bucket, bubble), data: { controller: "form", action: "change->form#submit" } do |form| %>
       <% Bubble::COLORS.each do |color| %>
         <span class="bubble__color-picker__color">
