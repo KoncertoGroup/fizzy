@@ -1,5 +1,5 @@
 <h1 class="txt-large">
-  <div class="filter" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
+  <div class="filter align-center gap-half" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
     <button class="btn btn--plain filter__button" data-action="click->dialog#toggle" data-dialog-modal-value="true">
       <% if params[:popped] %>
         Popped
@@ -9,7 +9,7 @@
     </button>
 
     <dialog class="filter__popup panel fill-white shadow" data-dialog-target="dialog">
-      <menu class="filter__menu flex flex-column gap-half unpad margin-none">
+      <menu class="filter__menu unpad margin-none">
         <li><%= link_to "Most active", bucket_bubbles_path(bucket, bubble_filter_params.without(:popped)), class: "filter__button" %></li>
         <li><a href="#" class="filter__button">Most discussed</a></li>
         <li><a href="#" class="filter__button">Most boosted</a></li>
@@ -22,13 +22,13 @@
 
   in
 
-  <div class="filter" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
+  <div class="filter align-center gap-half" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
     <button class="btn btn--plain filter__button" data-action="click->dialog#toggle" data-dialog-modal-value="true">
       <%= bucket.name %>
     </button>
 
     <dialog class="filter__popup panel fill-white shadow" data-dialog-target="dialog">
-      <menu class="filter__menu flex flex-column gap-half unpad margin-none">
+      <menu class="filter__menu unpad margin-none">
         <% Current.user.buckets.order(:name).each do |bucket| %>
           <li><%= link_to bucket.name, bucket_bubbles_path(bucket), class: "filter__button" %></li>
         <% end %>
@@ -37,16 +37,16 @@
   </div>
 </h1>
 
-<h2 class="txt-medium">
+<h2 class="txt-medium flex align-center justify-center gap-half">
   <%= tag ? "Tagged" : "with" %>
 
-  <div class="filter" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
+  <div class="filter align-center gap-half" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
     <button class="btn btn--plain filter__button" data-action="click->dialog#toggle" data-dialog-modal-value="true">
       <%= tag&.title || "any tag" %>
     </button>
 
     <dialog class="filter__popup panel fill-white shadow" data-dialog-target="dialog">
-      <menu class="filter__menu flex flex-column gap-half unpad margin-none">
+      <menu class="filter__menu unpad margin-none">
         <% Current.account.tags.order(:title).each do |tag| %>
           <li><%= link_to tag.title, bucket_bubbles_path(bucket, bubble_filter_params.merge(tag_id: tag.id)) %></li>
         <% end %>
@@ -63,13 +63,13 @@
 
   and
 
-  <div class="filter" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
+  <div class="filter align-center gap-half" data-controller="dialog" data-action="keydown.esc->dialog#close click@document->dialog#closeOnClickOutside">
     <button class="btn btn--plain filter__button" data-action="click->dialog#toggle" data-dialog-modal-value="true">
       assigned to <%= assignee&.name || "anyone" %>
     </button>
 
     <dialog class="filter__popup panel fill-white shadow" data-dialog-target="dialog">
-      <menu class="filter__menu flex flex-column gap-half unpad margin-none">
+      <menu class="filter__menu unpad margin-none">
         <% Current.account.users.active.order(:name).each do |user| %>
           <li><%= link_to user.name, bucket_bubbles_path(bucket, bubble_filter_params.merge(assignee_id: user.id)) %></li>
         <% end %>
