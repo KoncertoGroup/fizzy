@@ -19,6 +19,10 @@ gem "thruster", require: false
 gem "bcrypt", "~> 3.1.7"
 gem "rqrcode"
 
+# Telemetry
+gem "sentry-ruby"
+gem "sentry-rails"
+
 group :development, :test do
   gem "debug"
   gem "brakeman", require: false
