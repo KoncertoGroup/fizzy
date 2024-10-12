@@ -28,12 +28,12 @@ class Bubble::Thread
       [ a, b ] in [ Event, Event ]
     end
 
-    def roll_up(entries, index)
+    def roll_up(entries, position)
       case entries.first
       when Comment
         entries.sole
       when Event
-        Rollup.new self, entries, first_position: index.zero?
+        Rollup.new self, entries, first_position: position.zero?
       end
     end
 end
