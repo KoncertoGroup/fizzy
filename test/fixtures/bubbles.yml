@@ -5,7 +5,7 @@ logo:
   color: "#ED8008"
   due_on: <%= 3.days.from_now %>
   created_at: <%= 1.week.ago %>
-  boost_count: 4
+  boost_count: 5
 
 layout:
   bucket: writebook

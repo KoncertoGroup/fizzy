@@ -18,6 +18,12 @@ logo_assignment_km:
   particulars: <%= { assignee_ids: [ ActiveRecord::FixtureSet.identify(:kevin) ] }.to_json %>
   created_at: <%= 1.day.ago %>
 
+logo_boost_dhh:
+  creator: david
+  bubble: logo
+  action: boosted
+  created_at: <%= 1.week.ago %>
+
 logo_boost_km1:
   creator: kevin
   bubble: logo
