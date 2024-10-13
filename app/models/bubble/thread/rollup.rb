@@ -27,7 +27,7 @@ class Bubble::Thread::Rollup
     end
 
     def collapsed_entries
-      sorted_entries.chunk_while { |a, b| equivalent_boosts?(a, b) }.map { |chunk| [ chunk.last, chunk.size ] }
+      sorted_entries.chunk_while { |a, b| repeated_boosts?(a, b) }.map { |chunk| [ chunk.last, chunk.size ] }
     end
 
     def sorted_entries
@@ -40,7 +40,7 @@ class Bubble::Thread::Rollup
       end
     end
 
-    def equivalent_boosts?(a, b)
+    def repeated_boosts?(a, b)
       a.action == "boosted" && a.slice(:action, :creator_id) == b.slice(:action, :creator_id)
     end
 
