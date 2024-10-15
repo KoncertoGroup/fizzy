@@ -2,7 +2,7 @@ module Bubble::Commentable
   extend ActiveSupport::Concern
 
   included do
-    has_many :comments, dependent: :delete_all
+    has_many :comments, dependent: :destroy
   end
 
   def comment!(body)
