@@ -3,7 +3,7 @@ class Buckets::ViewsController < ApplicationController
 
   def create
     @bucket.views.create! filters: view_params.merge(assignee_ids:, tag_ids:).compact_blank
-    redirect_back_or_to bucket_bubbles_path(@bucket), notice: "Filters saved"
+    redirect_back_or_to bucket_bubbles_path(@bucket), notice: "✓"
   end
 
   private
