@@ -1,6 +1,6 @@
 module FiltersHelper
   def main_filter_text
-    (Bucket::View::ORDERS[params[:order_by]] || Bucket::View::STATUSES[params[:status]] || Bubble.default_order_by.humanize).upcase_first
+    (Bucket::View::ORDERS[params[:order_by]] || Bucket::View::STATUSES[params[:status]] || Bubble.default_order_by).humanize
   end
 
   def tag_filter_text
