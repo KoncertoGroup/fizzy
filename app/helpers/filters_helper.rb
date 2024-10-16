@@ -23,4 +23,8 @@ module FiltersHelper
   def bubble_filter_params
     @bubble_filter_params ||= params.permit :order_by, :status, :term, :assignee_ids, :tag_ids
   end
+
+  def querying_unassigned_status?
+    params[:status] == "unassigned"
+  end
 end

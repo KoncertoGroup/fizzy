@@ -2,7 +2,8 @@ class BubblesController < ApplicationController
   include BucketScoped
 
   before_action :set_bubble, only: %i[ show edit update ]
-  before_action :set_assignee_filters, :set_tag_filters, only: :index
+  before_action :clear_assignees_if_unassigned, only: :index
+  before_action :set_tag_filters, :set_assignee_filters, only: :index
 
   def index
     @bubbles = @bucket.bubbles
@@ -38,21 +39,23 @@ class BubblesController < ApplicationController
       @bubble = @bucket.bubbles.find params[:id]
     end
 
-    def set_assignee_filters
-      params[:assignee_ids] = nil if status_filter_param.unassigned?
-      @assignee_filters = Current.account.users.where(id: params[:assignee_ids]) if params[:assignee_ids]
-    end
-
-    def status_filter_param
-      params.fetch(:status, "")&.inquiry
-    end
-    helper_method :status_filter_param
-
-    def set_tag_filters
-      @tag_filters = Current.account.tags.where(id: params[:tag_ids]) if params[:tag_ids]
-    end
-
     def bubble_params
       params.require(:bubble).permit(:title, :color, :due_on, :image, tag_ids: [])
+    end
+
+    def clear_assignees_if_unassigned
+      params[:assignee_ids] = nil if helpers.querying_unassigned_status?
+    end
+
+    def set_tag_filters
+      if params[:tag_ids]
+        @tag_filters = Current.account.tags.where id: params[:tag_ids]
+      end
+    end
+
+    def set_assignee_filters
+      if params[:assignee_ids]
+        @assignee_filters = Current.account.users.where id: params[:assignee_ids]
+      end
     end
 end
