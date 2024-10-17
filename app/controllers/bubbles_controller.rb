@@ -3,7 +3,7 @@ class BubblesController < ApplicationController
 
   before_action :set_bubble, only: %i[ show edit update ]
   before_action :clear_assignees_if_unassigned, only: :index
-  before_action :set_bucket_view, :set_tag_filters, :set_assignee_filters, only: :index
+  before_action :set_view, :set_tag_filters, :set_assignee_filters, only: :index
 
   def index
     @bubbles = @bucket.bubbles
@@ -47,14 +47,14 @@ class BubblesController < ApplicationController
       params[:assignee_ids] = nil if helpers.querying_unassigned_status?
     end
 
-    def set_bucket_view
+    def set_view
       if params[:view_id]
-        @bucket_view = @bucket.views.find_by_id params[:view_id]
+        @view = @bucket.views.find_by_id params[:view_id]
       end
 
-      unless @bucket_view
-        @bucket_view = @bucket.views.find_by creator: Current.user, filters: helpers.bubble_filter_params.to_h
-        params[:view_id] = @bucket_view&.id
+      unless @view
+        @view = @bucket.views.find_by creator: Current.user, filters: helpers.bubble_filter_params.to_h
+        params[:view_id] = @view&.id
       end
     end
 
