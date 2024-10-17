@@ -6,14 +6,18 @@ class Bucket::View < ApplicationRecord
 
   has_one :account, through: :creator
 
-  validate :must_have_filters, :must_not_be_the_default_view
+  validate :must_not_be_the_default_view
+
+  class << self
+    def default_filters
+      { "order_by" => "most_active" }
+    end
+  end
 
   private
-    def must_have_filters
-      errors.add(:base, "must have filters") if filters.values.all?(&:blank?)
-    end
-
     def must_not_be_the_default_view
-      errors.add(:base, "must be different than the default view") if filters.compact_blank == { "order_by" => "most_active" }
+      if filters.values.all?(&:blank?) || filters == self.class.default_filters
+        errors.add :base, "must be different than the default view"
+      end
     end
 end
