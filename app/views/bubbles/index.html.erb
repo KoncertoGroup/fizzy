@@ -28,12 +28,9 @@
 
 <section class="bubbles-list unpad-inline center margin-block-start">
   <header class="flex-inline align-center gap txt-small margin-block-end-half center">
-    <form class="flex-item-no-shrink">
+    <%= bucket_view_form_tag bucket_bubbles_path(@bucket), method: :get, id: dom_id(@bucket, :search) do %>
       <%= search_field_tag :term, params[:term], class: "input center flex-inline", placeholder: "Type to filter…" %>
-      <% view_filter_params.without(:term).each do |name, value| %>
-        <%= hidden_field_tag name, value %>
-      <% end %>
-    </form>
+    <% end %>
   </header>
 
   <ul class="unpad margin-none flex flex-column txt-align-start center">

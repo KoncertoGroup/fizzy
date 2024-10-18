@@ -5,8 +5,15 @@ module BucketViewsHelper
 
   def bucket_view_form_tag(path, method:, id:)
     form_tag path, method: method, id: id do
-      concat hidden_field_tag(:order_by, params[:order_by])
-      concat hidden_field_tag(:status, params[:status])
+      yield if block_given?
+
+      if params[:order_by].present?
+        concat hidden_field_tag(:order_by, params[:order_by])
+      end
+
+      if params[:status].present?
+        concat hidden_field_tag(:status, params[:status])
+      end
 
       Array(params[:assignee_ids]).each do |assignee_id|
         concat hidden_field_tag("assignee_ids[]", assignee_id, id: nil)

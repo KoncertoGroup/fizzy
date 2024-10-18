@@ -10,8 +10,14 @@ class Bubble < ApplicationRecord
 
   scope :reverse_chronologically, -> { order created_at: :desc, id: :desc }
   scope :chronologically, -> { order created_at: :asc, id: :asc }
+
   scope :ordered_by_activity, -> { left_joins(:comments).group(:id).order(Arel.sql("COUNT(comments.id) + boost_count DESC")) }
-  scope :with_status, ->(status) { public_send status.presence_in(%w[ popped not_popped unassigned ]) }
+
+  scope :with_status, ->(status) do
+    status = status.presence_in %w[ popped not_popped unassigned ]
+    public_send(status) if status
+  end
+
   scope :ordered_by, ->(order) do
     case order
     when "most_active"    then ordered_by_activity
