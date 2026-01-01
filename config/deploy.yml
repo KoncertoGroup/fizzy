@@ -29,8 +29,8 @@ env:
     - SMTP_USERNAME
     - SMTP_PASSWORD
     - SMTP_AUTHENTICATION
-    - S3_ACCESS_KEY_ID
-    - S3_SECRET_ACCESS_KEY
+    # - S3_ACCESS_KEY_ID
+    # - S3_SECRET_ACCESS_KEY
   clear:
     BASE_URL: https://kanban.koncerto.com.au # The public URL of your Fizzy instance
     MAILER_FROM_ADDRESS: DoNotReply@kanban.koncerto.com.au # The email "from" address that Fizzy sends email from
@@ -40,15 +40,15 @@ env:
     MULTI_TENANT: true # Set to true to allow multiple accounts to sign up
     SOLID_QUEUE_IN_PUMA: true # Run background jobs in the app container
     # Cloudflare R2 Active Storage configuration
-    ACTIVE_STORAGE_SERVICE: "s3"
+    # ACTIVE_STORAGE_SERVICE: "s3"
     # Use the name of the bucket you created in Step 1
-    S3_BUCKET: "koncerto-fizzy-blob"
+    # S3_BUCKET: "koncerto-fizzy-blob"
     # Cloudflare R2 requires us-east-1 as the region for compatibility
-    S3_REGION: "oceania"
+    # S3_REGION: "oceania"
     # The endpoint URL from Step 2.7
-    S3_ENDPOINT: "https://5dc34c1ce2dabb5c41c979824a66c429.r2.cloudflarestorage.com"
+    # S3_ENDPOINT: "https://5dc34c1ce2dabb5c41c979824a66c429.r2.cloudflarestorage.com"
     # Essential for R2 compatibility
-    S3_FORCE_PATH_STYLE: "true"
+    # S3_FORCE_PATH_STYLE: "true"
 
 
 #-- General configuration --#
