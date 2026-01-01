@@ -13,7 +13,7 @@ else
 
   def create_tenant(signal_account_name)
     tenant_id = ActiveRecord::FixtureSet.identify signal_account_name
-    email_address = "david@example.com"
+    email_address = "adam.meyer@koncerto.com.au"
     identity = Identity.find_or_create_by!(email_address: email_address, staff: true)
 
     unless account = Account.find_by(external_account_id: tenant_id)
@@ -23,7 +23,7 @@ else
           name: signal_account_name
         },
         owner: {
-          name: "David Heinemeier Hansson",
+          name: "Adam Meyer",
           identity: identity
         }
       )
@@ -53,7 +53,5 @@ else
   end
 
   # Seed accounts
-  seed_account "cleanslate"
-  seed_account "37signals"
-  seed_account "honcho"
+  seed_account "koncerto"
 end
