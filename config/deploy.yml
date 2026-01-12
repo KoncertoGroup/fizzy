@@ -8,17 +8,16 @@ image: fizzy
 # Where to deploy fizzy
 servers:
   web:
-    - 40.82.212.65 # Set your server name here
+    - fizzy.example.com  # Set your server name here
 
 # How you connect to your server
 ssh:
-  user: koncerto-fizzy-adammeyer  # If you use a different username to SSH to your server, specify it here
-  keys:
-    - ~/.ssh/Koncerto-Fizzy-VM_key.pem
+  user: root  # If you use a different username to SSH to your server, specify it here
+
 # Automatic SSL
 proxy:
   ssl: true                # Set this to false if you *don't* want SSL
-  host: kanban.koncerto.com.au  # Set your server name here to use automatic SSL
+  host: fizzy.example.com  # Set your server name here to use automatic SSL
 
 # Your application configuration (secrets come from .kamal/secrets).
 env:
@@ -28,27 +27,12 @@ env:
     - VAPID_PRIVATE_KEY
     - SMTP_USERNAME
     - SMTP_PASSWORD
-    - SMTP_AUTHENTICATION
-    # - S3_ACCESS_KEY_ID
-    # - S3_SECRET_ACCESS_KEY
   clear:
-    BASE_URL: https://kanban.koncerto.com.au # The public URL of your Fizzy instance
-    MAILER_FROM_ADDRESS: DoNotReply@kanban.koncerto.com.au # The email "from" address that Fizzy sends email from
-    SMTP_ADDRESS: smtp.azurecomm.net # The SMTP server you'll use to send email
-    SMTP_PORT: 587 # The SMTP server port
-    SMTP_DOMAIN: kanban.koncerto.com.au # The SMTP server domain
-    MULTI_TENANT: true # Set to true to allow multiple accounts to sign up
+    BASE_URL: https://fizzy.example.com # The public URL of your Fizzy instance
+    MAILER_FROM_ADDRESS: support@example.com # The email "from" address that Fizzy sends email from
+    SMTP_ADDRESS: mail.example.com # The SMTP server you'll use to send email
+    MULTI_TENANT: false # Set to true to allow multiple accounts to sign up
     SOLID_QUEUE_IN_PUMA: true # Run background jobs in the app container
-    # Cloudflare R2 Active Storage configuration
-    # ACTIVE_STORAGE_SERVICE: "s3"
-    # Use the name of the bucket you created in Step 1
-    # S3_BUCKET: "koncerto-fizzy-blob"
-    # Cloudflare R2 requires us-east-1 as the region for compatibility
-    # S3_REGION: "oceania"
-    # The endpoint URL from Step 2.7
-    # S3_ENDPOINT: "https://5dc34c1ce2dabb5c41c979824a66c429.r2.cloudflarestorage.com"
-    # Essential for R2 compatibility
-    # S3_FORCE_PATH_STYLE: "true"
 
 
 #-- General configuration --#

@@ -40,9 +40,9 @@ if [ "$USE_TAILSCALE" = "1" ]; then
     echo "Error: tailscale serve failed. On Linux, run once: sudo tailscale set --operator=\$USER" >&2
     exit 1
   fi
-  echo "Login to: https://$TS_HOSTNAME:$TS_PORT/"
+  echo "Login with david@example.com to: https://$TS_HOSTNAME:$TS_PORT/"
 else
-  echo "Login to: http://fizzy.localhost:$PORT/"
+  echo "Login with david@example.com to: http://fizzy.localhost:$PORT/"
 fi
 
-./bin/rails server -p $PORT
+./bin/rails server -b 0.0.0.0 -p $PORT

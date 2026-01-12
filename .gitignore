@@ -42,5 +42,5 @@
 /config/credentials/*.key
 .DS_Store
 
-# Ignore kamal secrets file
-/.kamal/secrets
+# Ignore Kamal secrets
+/.kamal

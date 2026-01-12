@@ -13,7 +13,6 @@ gem "turbo-rails"
 # Deployment and drivers
 gem "bootsnap", require: false
 gem "kamal", require: false
-gem "litestream"
 gem "puma", ">= 5.0"
 gem "solid_cable", ">= 3.0"
 gem "solid_cache", "~> 1.0"
